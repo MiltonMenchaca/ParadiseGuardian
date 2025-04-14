@@ -7,11 +7,11 @@ import logRoutes from "./routes/logRoutes.js";
 import { Server } from "socket.io";
 import http from "http";
 import errorHandler from "./middlewares/errorHandler.js";
-app.use(errorHandler);
 
 dotenv.config();
 
 const app = express();
+app.use(errorHandler);
 const server = http.createServer(app);
 const io = new Server(server, { cors: { origin: "*" } });
 
