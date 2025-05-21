@@ -1,30 +1,30 @@
 # ParadiseGuardian
 
-ParadiseGuardian es un Dashboard de Monitoreo de Seguridad en Tiempo Real diseñado para ayudar a los equipos de seguridad (Blue Teams) a supervisar y analizar eventos de seguridad en su infraestructura tecnológica.
+ParadiseGuardian is a Real-Time Security Monitoring Dashboard designed to help security teams (Blue Teams) monitor and analyze security events in their technological infrastructure.
 
-## Objetivo
+## Objective
 
-Desarrollar una plataforma que permita monitorear logs en tiempo real, visualizar métricas de seguridad y gestionar eventos críticos para la protección de sistemas.
+Develop a platform that allows monitoring logs in real-time, visualizing security metrics, and managing critical events for system protection.
 
-## Tecnologías Utilizadas
+## Technologies Used
 
 ### Frontend
-- React - Interfaz de usuario interactiva y responsiva.
-- Material-UI - Componentes estilizados para un diseño atractivo.
-- TailwindCSS - Estilos personalizados para flexibilidad en el diseño.
-- Axios - Comunicación con el backend vía API REST.
-- Redux Toolkit - Manejo eficiente del estado global de la aplicación.
-- Socket.IO - Comunicación en tiempo real con WebSockets.
+- React - Interactive and responsive user interface.
+- Material-UI - Styled components for an attractive design.
+- TailwindCSS - Custom styles for design flexibility.
+- Axios - Communication with the backend via REST API.
+- Redux Toolkit - Efficient global state management.
+- Socket.IO - Real-time communication with WebSockets.
 
 ### Backend
-- Node.js + Express - Servidor rápido y eficiente.
-- Sequelize - ORM para gestionar la base de datos PostgreSQL/TimescaleDB.
-- PostgreSQL + TimescaleDB - Base de datos optimizada para logs de seguridad en tiempo real.
-- JWT - Seguridad y autenticación de usuarios.
-- bcrypt.js - Encriptación de contraseñas.
-- Socket.IO - Notificaciones en tiempo real de eventos de seguridad.
+- Node.js + Express - Fast and efficient server.
+- Sequelize - ORM for managing PostgreSQL/TimescaleDB database.
+- PostgreSQL + TimescaleDB - Database optimized for real-time security logs.
+- JWT - User security and authentication.
+- bcrypt.js - Password encryption.
+- Socket.IO - Real-time security event notifications.
 
-## Estructura del Proyecto
+## Project Structure
 
 ```
 ParadiseGuardian/
@@ -46,6 +46,8 @@ ParadiseGuardian/
 │   │   ├── pages/
 │   │   ├── services/
 │   │   ├── store/
+│   │   ├── App.tsx
+│   │   ├── main.tsx
 │   │   ├── App.js
 │   │   ├── index.js
 │   ├── public/
@@ -54,70 +56,71 @@ ParadiseGuardian/
 │── README.md
 ```
 
-## Instalación y Configuración
+## Installation and Configuration
 
-### Requisitos Previos
+### Prerequisites
 1. Node.js v16+
-2. PostgreSQL con TimescaleDB
-3. Docker (Opcional para despliegue rápido)
+2. PostgreSQL with TimescaleDB
+3. Docker (Optional for quick deployment)
 
-### Clonar el Repositorio
+### Clone the Repository
 ```bash
 git clone https://github.com/MiltonMenchaca/ParadiseGuardian.git
 cd ParadiseGuardian
 ```
 
-### Configurar el Backend
+### Configure the Backend
 ```bash
 cd paradiseguardian-backend
 npm install
 ```
 
-Configurar `.env` en `paradiseguardian-backend/.env`:
+Configure `.env` in `paradiseguardian-backend/.env`:
 ```
 DB_URL=postgres://admin:admin@localhost:5432/paradiseguardian
-JWT_SECRET=supersecreto
-REFRESH_SECRET=otro_secreto_aun_mas_largo
+JWT_SECRET=supersecret
+REFRESH_SECRET=another_even_longer_secret
 ```
 
-Iniciar el backend:
+Start the backend:
 ```bash
 npm run dev
 ```
 
-### Configurar el Frontend
+### Configure the Frontend
 ```bash
 cd ../paradiseguardian-frontend
 npm install
 npm start
 ```
 
-## Funcionalidades Principales
+## Main Features
 
-- Autenticación de Usuarios (JWT + Refresh Tokens)
-- Monitoreo en Tiempo Real con WebSockets
-- Visualización de Logs en un Dashboard Interactivo
-- Gráficos Dinámicos de Seguridad
-- Almacenamiento Optimizado con TimescaleDB
-- Infraestructura lista para Docker y despliegue en producción
+- User Authentication (JWT + Refresh Tokens)
+- Real-Time Monitoring with WebSockets
+- Log Visualization in an Interactive Dashboard
+- Dynamic Security Charts
+- Optimized Storage with TimescaleDB
+- Infrastructure ready for Docker and production deployment
+- Academic resources for cybersecurity learning and documentation
 
-## API Endpoints Principales
+## Main API Endpoints
 
-### Autenticación (`/api/auth`)
-| Método | Ruta        | Descripción               |
+### Authentication (`/api/auth`)
+| Method | Route      | Description               |
 |--------|------------|---------------------------|
-| POST   | /register  | Registra un nuevo usuario |
-| POST   | /login     | Inicia sesión y genera tokens JWT |
+| POST   | /register  | Register a new user       |
+| POST   | /login     | Login and generate JWT tokens |
 
-### Logs de Seguridad (`/api/logs`)
-| Método | Ruta       | Descripción              |
-|--------|-----------|--------------------------|
-| POST   | /         | Crea un nuevo log        |
-| GET    | /         | Obtiene logs recientes   |
+### Security Logs (`/api/logs`)
+| Method | Route      | Description               |
+|--------|------------|---------------------------|
+| POST   | /          | Create a new log          |
+| GET    | /          | Get recent logs           |
 
-## Despliegue con Docker
+## Deployment with Docker
 
-### Crear un archivo `docker-compose.yml`
+### Create a `docker-compose.yml` file
 ```yaml
 version: '3.8'
 services:
@@ -143,21 +146,25 @@ services:
       - backend
 ```
 
-### Ejecutar con Docker
+### Run with Docker
 ```bash
 docker-compose up --build
 ```
 
-## Contribuciones
+## Future Enhancements
 
-Las contribuciones son bienvenidas. Para colaborar:
-1. Haz un fork del repositorio.
-2. Crea una rama (`git checkout -b feature-nueva-funcionalidad`).
-3. Realiza cambios y haz commit (`git commit -m "Descripción del cambio"`).
-4. Envía un pull request.
+For detailed information about our planned integrations with SIEM platforms, security tools, and infrastructure improvements, please refer to the [implementation.md](implementation.md) file.
 
-## Licencia
+## Contributions
 
-Este proyecto está bajo la licencia MIT.
+Contributions are welcome. To collaborate:
+1. Fork the repository.
+2. Create a branch (`git checkout -b feature-new-functionality`).
+3. Make changes and commit (`git commit -m "Description of the change"`).
+4. Send a pull request.
 
-Repositorio en GitHub: [ParadiseGuardian](https://github.com/MiltonMenchaca/ParadiseGuardian)
+## License
+
+This project is under the MIT license.
+
+GitHub Repository: [ParadiseGuardian](https://github.com/MiltonMenchaca/ParadiseGuardian)
