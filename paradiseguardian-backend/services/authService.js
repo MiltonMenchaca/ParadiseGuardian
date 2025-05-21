@@ -33,3 +33,21 @@ export const authenticateUser = async (email, password) => {
         refreshToken: generateRefreshToken(user)
     };
 };
+
+export const verifyRefreshToken = async (refreshToken) => {
+    try {
+        // Verificar la validez del refresh token
+        const decoded = jwt.verify(refreshToken, process.env.REFRESH_SECRET);
+        
+        // Verificar que el usuario existe en la base de datos
+        const user = await User.findByPk(decoded.id);
+        if (!user) {
+            throw new Error("Usuario no encontrado");
+        }
+        
+        return user.id;
+    } catch (error) {
+        console.error("Error al verificar refresh token:", error);
+        return null;
+    }
+};
